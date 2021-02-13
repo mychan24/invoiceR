@@ -1,0 +1,9 @@
+---
+provider_name: "Your Name"
+provider_address_street: "12345 Street"
+provider_address_city: "Awesome City"
+provider_address_state: "AA"
+provider_address_zip: "12345"
+provider_address_country: "United States"
+provider_email: "shadywhale@ocean.com"
+provider_phone: "(1234)456-7890"

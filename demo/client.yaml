@@ -1,0 +1,20 @@
+---
+invoice_number: 0001
+client_name: "Client Foo Foo"
+client_address_street: "1234 Street"
+client_address_city: "Some City"
+client_address_state: "AA"
+client_address_zip: "12345"
+client_address_country: "United States"
+line_items: 
+  - "Data analysis & visualization (Day)"
+  - "Designing new analysis method (Hour)"  
+item_descrip: 
+  - "Project: Foo"
+  - "Project: General Foo"  
+unit_cost: 
+  - 650
+  - 100
+quantity:
+  - 2
+  - 5

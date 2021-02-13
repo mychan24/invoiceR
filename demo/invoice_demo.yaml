@@ -1,0 +1,15 @@
+---
+invoice_number: 0001
+line_items: 
+  - "Data analysis & visualization (Day)"
+  - "Designing new analysis method (Hour)"
+item_descrip: 
+  - "Project: MOLSO0013"
+  - "Project: General CA"  
+unit_cost: 
+  - 650
+  - 100
+quantity:
+  - 2
+  - 5
+paid_to_date: 100

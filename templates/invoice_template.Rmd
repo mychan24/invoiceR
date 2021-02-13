@@ -1,0 +1,99 @@
+---
+params:
+  invoice: "client/CloudArmy/invoice_20210212.yaml"
+  client: "client/CloudArmy/cloud_army.yaml"
+  provider: "provider/micaela.yaml"
+mainfont: Open Sans
+output: 
+  pdf_document:
+    latex_engine: xelatex
+header-includes:
+   - \usepackage{tabto}
+always_allow_html: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE) # don't show code in output
+
+libs <- c("yaml", "tidyverse", "kableExtra")
+
+xfun::pkg_attach(libs)
+
+df <- read_yaml(params$invoice)
+cl <- read_yaml(params$client)
+pr <- read_yaml(params$provider)
+```
+
+```{r func}
+colorize <- function(color, x) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor[HTML]{%s}{%s}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'>%s</span>", color, 
+      x)
+  } else x
+}
+```
+
+# `r colorize("4682B4", "Invoice")`
+
+```{r calculate}
+t <- data.frame(Item = df$line_items,
+                Description = df$item_descrip,
+                `Unit Cost` = df$unit_cost,
+                 Quantity = df$quantity)
+names(t)[3] <- "Unit Cost"
+
+t$`Line Total` <- t$`Unit Cost`*t$Quantity
+
+subtotal <- sum(t$`Line Total`)
+paid_to_date <- df$paid_to_date
+balance_due <- subtotal-paid_to_date
+
+t$`Unit Cost` <- sprintf("$%.2f", t$`Unit Cost`)
+t$`Line Total` <- sprintf("$%.2f", t$`Line Total`)
+t$Item <- as.character(t$Item)
+t$Description <- as.character(t$Description)
+
+```
+
+Invoice Number: \tabto{4cm} **`r sprintf("%04d",df$invoice_number)`**\
+Invoice Date:   \tabto{4cm} `r format(Sys.time(),"%B %d, %Y")`\
+Balance Due:    \tabto{4cm} `r sprintf("$%.3f",balance_due)`\
+
+\vspace{1cm}
+
+**`r cl$client_name`**\
+`r cl$client_address_street`\
+`r sprintf("%s, %s %s", cl$client_address_city,cl$client_address_state, cl$client_address_zip)`\
+`r cl$client_address_country`\
+
+
+```{r print_item_table}
+t %>%
+  rbind(., c("", "", "", "Subtotal", sprintf("$%.2f", subtotal))) %>%  
+  rbind(., c("", "", "", "Paid To Date", sprintf("$%.2f", paid_to_date))) %>%    
+  rbind(., c("", "", "", "Balance Due", sprintf("$%.2f", balance_due))) %>%    
+  kable(format="latex") %>%
+  kable_styling(latex_options = "striped", stripe_index = c(1:nrow(t))) %>%
+  row_spec(c(0,nrow(t)+3), bold = T, color = "white", background = "#4682B4") %>%
+  column_spec(1,width = "1.65in") %>%
+  column_spec(2,width = "2in") %>%
+  column_spec(3,width = "0.7in") %>%
+  column_spec(4,width = "0.7in") %>%
+  column_spec(5,width = "0.75in") 
+```
+
+\vspace{1cm}
+
+**`r colorize("4682B4", pr$provider_name)`** \tabto{6cm} `r pr$provider_address_street`\
+`r pr$provider_email` \tabto{6cm} `r sprintf("%s, %s %s", pr$provider_address_city,pr$provider_address_state, pr$provider_address_zip)`\
+`r pr$provider_phone` \tabto{6cm} `r pr$provider_address_country`\
+
+
+
+
+
+
+
+

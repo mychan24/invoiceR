@@ -1,6 +1,7 @@
 language: r
 before_install:
   - tlmgr install index
+  - tlmgr option repository ctan
 cache: packages
 warnings_are_errors: false
 r:

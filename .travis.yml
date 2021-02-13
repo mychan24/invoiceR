@@ -2,7 +2,7 @@ dist: bionic
 language: r
 before_install:
   - tlmgr update --self
-  - tlmgr install tabto-ltx
+  - tlmgr install tabto-ltx unicode-math
 cache: packages
 warnings_are_errors: false
 r:

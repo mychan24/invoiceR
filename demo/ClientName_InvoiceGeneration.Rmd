@@ -3,7 +3,7 @@ title: "Client Foo Foo"
 output: html_document
 ---
 
-```{r, include=FALSE}
+```{r client_setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
 ```
@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 * Date Generated: <today's date for documentaiton>
 
-```{r echo=FALSE}
+```{r source_invoiceR,echo=FALSE}
 source("../R/invoiceR.R")
 
 ddir <- "../"

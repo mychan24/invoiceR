@@ -1,8 +1,8 @@
 ---
 params:
-  invoice: "client/CloudArmy/invoice_20210212.yaml"
-  client: "client/CloudArmy/cloud_army.yaml"
-  provider: "provider/micaela.yaml"
+  invoice: "../demo/invoice_demo.yaml"
+  client: "../demo/client.yaml"
+  provider: "../demo/provider.yaml"
 mainfont: Open Sans
 output: 
   pdf_document:

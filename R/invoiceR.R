@@ -3,7 +3,8 @@ require(yaml)
 
 invoiceR <- function(invoice_yaml, client_yaml, provider_yaml, tempalte_rmd, invdir, income_file=NULL){
   
-  setwd(invdir)
+  print(getwd())
+  # setwd(invdir)
   
   #### Create invoice by rendering PDF using  rmarkdown ####
   df <- read_yaml(invoice_yaml)

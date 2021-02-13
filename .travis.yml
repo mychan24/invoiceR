@@ -2,7 +2,7 @@ dist: bionic
 language: r
 before_install:
   - tlmgr update --self
-  - tlmgr install booktabs caption fancyhdr tabto
+  - tlmgr install tabto-ltx
 cache: packages
 warnings_are_errors: false
 r:

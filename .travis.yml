@@ -1,7 +1,8 @@
 language: r
+before_install:
+  - tlmgr install index
 cache: packages
 warnings_are_errors: false
-
 r:
   - release
 r_packages:

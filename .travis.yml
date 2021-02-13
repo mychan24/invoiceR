@@ -1,6 +1,5 @@
+dist: bionic
 language: r
-before_install:
-  - tlmgr install index
 cache: packages
 warnings_are_errors: false
 r:
@@ -14,5 +13,4 @@ os:
   - linux
 
 script:
-    - tlmgr option repository ctan
     - Rscript ./tests/testinvoiceR.R

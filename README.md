@@ -36,3 +36,6 @@ The CSV file includes:
 * `Balance`: **Balance Due** calcualted from data in invoice yaml file. 
 * **NOTES:** If a new income_file is defined in the function, it will generate a new csv file with the above information entered. If an existing income_file is defined, it will check whether a duplicated invoice number exists. If yes, it will not enter the income data and ask you to either (1) define a new income_file or (2) set the income_file to `NULL` and skip this step. Set to `NULL` if re-generating PDF only. 
 
+## Example
+<img src="demo/ExampleInvoice/ExampleInvoice.png" width="656" height="522">
+

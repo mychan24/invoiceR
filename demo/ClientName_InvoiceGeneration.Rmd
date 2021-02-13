@@ -3,7 +3,7 @@ title: "Client Foo Foo"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
 ```

@@ -1,0 +1,16 @@
+Title: Testing invoiceR
+Package: testing_ci_r
+Type: Package
+Version: 1.0
+Authors@R: person("Micale", "Chan", email = "",
+    role = c("aut", "cre"))
+Description: Generate PDF invoice and export balance data to csv file
+License: MIT + file LICENSE
+BugReports: https://github.com/mychan24/invoiceR/issues
+LazyData: TRUE
+Depends:
+    R (>= 2.10)
+Imports:
+    rmarkdown,
+    yaml
+RoxygenNote: 6.0.1

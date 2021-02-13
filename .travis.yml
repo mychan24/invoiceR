@@ -1,0 +1,14 @@
+language: r
+cache: packages
+warnings_are_errors: false
+
+r:
+  - release
+r_packages:
+  - yaml
+  - rmarkdown
+os:
+  - linux
+
+script:
+    - Rscript ./tests/testinvoiceR.R

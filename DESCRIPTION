@@ -12,5 +12,7 @@ Depends:
     R (>= 2.10)
 Imports:
     rmarkdown,
-    yaml
+    yaml,
+    tidyverse,
+    kableExtra
 RoxygenNote: 6.0.1

@@ -2,23 +2,13 @@ language: r
 
 dist: bionic
 
-## Uncomment the following lines if you require extra dependencies
-#before_install:
-# - sudo apt-get install ghostscript # If you use latex > dvips > ps2pdf
-# - sudo apt-get install python-pygments # If you use the minted package
-  # If you use custom fonts:
-# - mkdir $HOME/.fonts
-# - cp -a $TRAVIS_BUILD_DIR/src/fonts/. $HOME/.fonts/
-# - fc-cache -f -v
-
 install:
   - source ./texlive/texlive_install.sh
 
-cache:
-  directories:
-    - /tmp/texlive
-    - $HOME/.texlive
-  packages
+cache: packages
+#  directories:
+#    - /tmp/texlive
+#    - $HOME/.texlive
 
 # Change working directory so including files will work
 # before_script: cd $TRAVIS_BUILD_DIR/src/
@@ -35,16 +25,15 @@ os:
   - linux
 
 script:
-  # Texliveonfly will download packages automatically
+  ## Texliveonfly will download packages automatically
   # - texliveonfly main.tex
-  # You can use latexmk to automatically handle bibtex and references (recommended)
+  ## You can use latexmk to automatically handle bibtex and references (recommended)
   # - latexmk -pdf main.tex
-  # Run testing script for the repo
+  ## Run testing script for the repo
   - Rscript ./tests/testinvoiceR.R
 
-# Uncomment the following lines to see the packages installed in travis
-after_script:
-  - export PATH=/tmp/texlive/bin/x86_64-linux:$PATH
-  - tlmgr list --only-installed | grep -oP 'i \K.+?(?=:)'
-
+## Uncomment the following lines to see the packages installed in travis
+# after_script:
+#   - export PATH=/tmp/texlive/bin/x86_64-linux:$PATH
+#  - tlmgr list --only-installed | grep -oP 'i \K.+?(?=:)'
 

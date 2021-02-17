@@ -23,6 +23,17 @@ cache:
 # Change working directory so including files will work
 # before_script: cd $TRAVIS_BUILD_DIR/src/
 
+warnings_are_errors: false
+r:
+  - release
+r_packages:
+  - yaml
+  - rmarkdown
+  - tidyverse
+  - kableExtra
+os:
+  - linux
+
 script:
   # Texliveonfly will download packages automatically
   # - texliveonfly main.tex
@@ -36,13 +47,4 @@ after_script:
   - export PATH=/tmp/texlive/bin/x86_64-linux:$PATH
   - tlmgr list --only-installed | grep -oP 'i \K.+?(?=:)'
 
-warnings_are_errors: false
-r:
-  - release
-r_packages:
-  - yaml
-  - rmarkdown
-  - tidyverse
-  - kableExtra
-os:
-  - linux
+

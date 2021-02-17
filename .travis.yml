@@ -18,9 +18,10 @@ cache:
   directories:
     - /tmp/texlive
     - $HOME/.texlive
+  packages
 
 # Change working directory so including files will work
-before_script: cd $TRAVIS_BUILD_DIR/src/
+# before_script: cd $TRAVIS_BUILD_DIR/src/
 
 script:
   # Texliveonfly will download packages automatically
@@ -28,7 +29,7 @@ script:
   # You can use latexmk to automatically handle bibtex and references (recommended)
   # - latexmk -pdf main.tex
   # Run testing script for the repo
-  - Rscript ../tests/testinvoiceR.R
+  - Rscript ./tests/testinvoiceR.R
 
 # Uncomment the following lines to see the packages installed in travis
 after_script:

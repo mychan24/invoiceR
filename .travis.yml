@@ -28,7 +28,7 @@ script:
   # You can use latexmk to automatically handle bibtex and references (recommended)
   # - latexmk -pdf main.tex
   # Run testing script for the repo
-  - Rscript ./tests/testinvoiceR.R
+  - Rscript ../tests/testinvoiceR.R
 
 # Uncomment the following lines to see the packages installed in travis
 after_script:

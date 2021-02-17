@@ -24,9 +24,9 @@ before_script: cd $TRAVIS_BUILD_DIR/src/
 
 script:
   # Texliveonfly will download packages automatically
-  - texliveonfly main.tex
+  # - texliveonfly main.tex
   # You can use latexmk to automatically handle bibtex and references (recommended)
-  - latexmk -pdf main.tex
+  # - latexmk -pdf main.tex
   # Run testing script for the repo
   - Rscript ./tests/testinvoiceR.R
 

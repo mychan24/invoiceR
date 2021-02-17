@@ -5,10 +5,11 @@ dist: bionic
 install:
   - source ./texlive/texlive_install.sh
 
-cache: packages
-#  directories:
-#    - /tmp/texlive
-#    - $HOME/.texlive
+cache: 
+  packages: true
+  directories:
+    - /tmp/texlive
+    - $HOME/.texlive
 
 # Change working directory so including files will work
 # before_script: cd $TRAVIS_BUILD_DIR/src/

@@ -13,7 +13,7 @@ cache:
 
 # Change working directory so including files will work
 before_script: 
-  - cd $TRAVIS_BUILD_DIR/src/
+  - cd $TRAVIS_BUILD_DIR/tests
   
 warnings_are_errors: false
 
@@ -34,7 +34,7 @@ script:
   ## You can use latexmk to automatically handle bibtex and references (recommended)
   # - latexmk -pdf main.tex
   ## Run testing script for the repo
-  - Rscript ../tests/testinvoiceR.R
+  - Rscript testinvoiceR.R
 
 ## Uncomment the following lines to see the packages installed in travis
 # after_script:

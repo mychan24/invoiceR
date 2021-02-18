@@ -2,9 +2,10 @@ language: generic
 
 dist: bionic
 
-install:
-  - source ./texlive/texlive_install.sh
-  - sudo apt install r-base-core
+# install:
+#  - source ./texlive/texlive_install.sh
+#  - sudo apt install r-base-core
+
 cache: 
   directories:
     - /tmp/texlive
@@ -13,6 +14,9 @@ cache:
 
 # Change working directory so including files will work
 before_script: 
+  - tlmgr install $(sed 's/\s*#.*//;/^\s*$/d' texlive/texlive_packages)
+  - tlmgr option -- autobackup 0
+  - tlmgr update --self --all --no-auto-install
   - cd $TRAVIS_BUILD_DIR/tests
   
 warnings_are_errors: false

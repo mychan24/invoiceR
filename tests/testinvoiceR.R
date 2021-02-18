@@ -1,2 +1,2 @@
 
-rmarkdown::render("./demo/ClientName_InvoiceGeneration.Rmd")
+rmarkdown::render("../demo/ClientName_InvoiceGeneration.Rmd")

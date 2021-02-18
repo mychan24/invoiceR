@@ -4,7 +4,7 @@ dist: bionic
 
 install:
   - source ./texlive/texlive_install.sh
-  - apt install r-base-core
+  - sudo apt install r-base-core
 cache: 
   directories:
     - /tmp/texlive

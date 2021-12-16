@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Client Name
 
-* Date Generated: <today's date for documentaiton>
+* Date Generated: <today's date for documentation>
 
 ```{r source_invoiceR,echo=FALSE}
 source("../R/invoiceR.R")
@@ -20,7 +20,7 @@ ddir <- "../"
 invoiceR(invoice_yaml = file.path(ddir,"demo/invoice_demo.yaml"),
          client_yaml = file.path(ddir,"demo/client.yaml"),
          provider_yaml = file.path(ddir,"demo/provider.yaml"),
-         tempalte_rmd = file.path(ddir, "templates/invoice_template.Rmd"),
+         template_rmd = file.path(ddir, "templates/invoice_template.Rmd"),
          invdir = file.path(ddir, "demo"),
          # switch income_file to NULL if already have income data inputted.
          income_file = file.path(ddir, "demo/new_income.csv") 

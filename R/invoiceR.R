@@ -1,7 +1,7 @@
 require(rmarkdown)
 require(yaml)
 
-invoiceR <- function(invoice_yaml, client_yaml, provider_yaml, tempalte_rmd, invdir, income_file=NULL){
+invoiceR <- function(invoice_yaml, client_yaml, provider_yaml, template_rmd, invdir, income_file=NULL){
   
   print(getwd())
   # setwd(invdir)
@@ -11,11 +11,11 @@ invoiceR <- function(invoice_yaml, client_yaml, provider_yaml, tempalte_rmd, inv
   cl <- read_yaml(client_yaml)
   pr <- read_yaml(provider_yaml)
   
-  render(input = tempalte_rmd, envir = new.env(),         # invoice markdown template
+  render(input = template_rmd, envir = new.env(),         # invoice markdown template
          params = list(invoice=invoice_yaml,              # params for markdown
                        client=client_yaml,
                        provider=provider_yaml),
-         output_file = sprintf("%s/%04d_%s_%s.pdf",  # outfile
+         output_file = sprintf("%s/%04d_%s_%s.pdf",  # output file
                                invdir,
                                df$invoice_number, 
                                gsub(" ", "", cl$client_name), 

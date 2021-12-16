@@ -59,7 +59,7 @@ t$Description <- as.character(t$Description)
 
 Invoice Number: \tabto{4cm} **`r sprintf("%04d",df$invoice_number)`**\
 Invoice Date:   \tabto{4cm} `r format(Sys.time(),"%B %d, %Y")`\
-Balance Due:    \tabto{4cm} `r sprintf("$%.3f",balance_due)`\
+Balance Due:    \tabto{4cm} `r sprintf("$%.2f",balance_due)`\
 
 \vspace{1cm}
 
@@ -75,7 +75,7 @@ t %>%
   rbind(., c("", "", "", "Paid To Date", sprintf("$%.2f", paid_to_date))) %>%    
   rbind(., c("", "", "", "Balance Due", sprintf("$%.2f", balance_due))) %>%    
   kable(format="latex") %>%
-  kable_styling(latex_options = "striped", stripe_index = c(1:nrow(t))) %>%
+  kable_styling(latex_options = "HOLD_position", stripe_index = c(1:nrow(t))) %>%
   row_spec(c(0,nrow(t)+3), bold = T, color = "white", background = "#4682B4") %>%
   column_spec(1,width = "1.65in") %>%
   column_spec(2,width = "2in") %>%
